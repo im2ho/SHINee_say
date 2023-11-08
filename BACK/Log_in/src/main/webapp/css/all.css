@@ -1,4 +1,4 @@
-@charset "EUC-KR";
+@charset "UTF-8";
 @font-face{font-family:"Pixelated MS Sans Serif";font-style:normal;font-weight:400;src:url(ms_sans_serif.woff) format("woff");src:url(ms_sans_serif.woff2) format("woff2")}
 @font-face{font-family:"Pixelated MS Sans Serif";font-style:normal;font-weight:700;src:url(ms_sans_serif_bold.woff) format("woff");src:url(ms_sans_serif_bold.woff2) format("woff2")}
 body{
@@ -524,7 +524,8 @@ table{
     text-align:left;
     white-space:nowrap
 
-}table>thead>tr>*{
+}
+table>thead>tr>*{
     background:silver;
     box-shadow:inset -1px -1px #0a0a0a,inset 1px 1px #fff,inset -2px -2px grey,inset 2px 2px #dfdfdf;
     box-sizing:border-box;
