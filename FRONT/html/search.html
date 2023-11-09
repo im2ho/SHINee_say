@@ -2,7 +2,7 @@
 <html>
     <head>
         <title>SHINee Music</title>
-        <link rel="stylesheet" href="../css/main.css">
+        <link rel="stylesheet" href="../css/search.css">
         <link rel="stylesheet" href="../css/all.css">
     </head>
     <body>
@@ -23,23 +23,26 @@
             </aside>
             <section>
                 <div class="bluetop" style="margin-top:20px; width:1200px;">
-                    <p style="margin-top:5px">Update My Info</p>
+                    <p style="margin-top:5px">Search</p>
                 </div>
                 <div style="width:1200px; height:30px; background-color: gray;">
+                    <button id="categoryButton"><strong>music</strong></button>
+                    <button id="categoryButton"><strong>album</strong></button>
+                    <button id="categoryButton"><strong>playlist</strong></button>
+                    <button id="categoryButton"><strong>user</strong></button>
                 </div>
                 <article>
-                    <div style="text-align: center; margin-top:8%">
-                        <img src="../img/dino.gif" alt="샤이니뮤직 로고" style="width:300px;">
-                    </div>
-                    <div style="text-align: center; margin-top: 20px;">
-                        <h3>로그인 후 이용해주세요</h3><br>
-                        <button id="gotoLoginButton" style="width: 200px; padding: 10px; background-color: blue; color:white;">로그인 하기</button><br>
-                        <button id="joinButton" style="width: 200px; padding: 10px; margin-top: 5px;">회원가입 하기</button>
+                    <div style="margin-top: 60px; text-align: center;">
+                        <img src="../img/샤이니로고.png" alt="샤이니뮤직로고" style="width:150px;">
+                        <input type="text"
+                            placeholder="검색어 입력" name="searchText" maxlength="100">
+                        <button type="submit" id="searchButton">검색</button>
+                        <div class="division-line">
+                            <!--검색결과 올라가는 곳-->
+                        </div>
                     </div>
                 </article>
             </section>
         </div><!--container-->
-        <script>
-        </script>
     </body>
 </html>

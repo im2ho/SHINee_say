@@ -1,4 +1,3 @@
-@charset "UTF-8";
 @font-face {
     font-family: 'Ramche';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2307-1@1.1/Ramche.woff2') format('woff2');
@@ -43,9 +42,6 @@ button:focus{
 }
 section{
     float:right;
-}
-#popupButton{
-    padding: 5px;
 }
 .bluetop {
     background: linear-gradient(to right,navy 30%, dodgerblue ) ;
@@ -105,3 +101,37 @@ article h3{
     background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg width='16' height='17' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M15 0H0v16h1V1h14V0z' fill='%23DFDFDF'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M2 1H1v14h1V2h12V1H2z' fill='%23fff'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M16 17H0v-1h15V0h1v17z' fill='%23000'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M15 1h-1v14H1v1h14V1z' fill='gray'/%3E%3Cpath fill='silver' d='M2 2h12v13H2z'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M7 4H6v7h1v-1h1V9h1V8h1V7H9V6H8V5H7V4z' fill='%23000'/%3E%3C/svg%3E");
     width:16px
 }
+
+#categoryButton {
+    font-family: 'Ramche' ;
+    font-size:medium ;
+    margin-left: 30px ;
+    background: none ;
+    border: 0 ;
+    outline: none ;
+    box-shadow: none ;
+    height: 38px ;
+    margin-top: -3px ;
+    text-align: center ;
+}
+#categoryButton:hover{
+background-color: rgb(109, 109, 109);
+}
+article input{
+    border-style: inset;
+    height:30px;
+    width: 200px;
+    margin-left: 10px;
+}
+#searchButton{
+    font-family: 'Ramche' ;
+    font-size:medium ;
+    margin-left: 10px ;
+    outline: none ;
+    height: 30px;
+    text-align: center ;
+}
+.division-line {
+    border-top: 2px solid #444444;
+    margin: 30px 30px;
+  }

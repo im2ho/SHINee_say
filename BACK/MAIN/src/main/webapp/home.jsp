@@ -30,7 +30,7 @@
 	                    <img src="img/lookaround.png" style="width:85px; padding:0;" alt="lookaround Icon">
 	                    <p><strong>my<br>Playlist</strong></p>
 	                </button>
-	                <button style="margin-top: 50px;">
+	                <button id="gotoSearchButton" style="margin-top: 50px;">
 	                    <img src="img/pixel_search.png" style="width:85px; padding:0;" alt="Search Icon">
 	                    <p><strong>search</strong></p>
 	                </button>
@@ -57,9 +57,14 @@
 			} //else (로그아웃 상태에서 보여질 창)
 		%>
 		<script>
-		document.getElementById("gotoLoginButton").addEventListener("click",()=>{
-			window.location.href = "login.jsp";
-		});
+			//로그인하기 버튼 누르면 로그인 창으로 이동
+			document.getElementById("gotoLoginButton").addEventListener("click",()=>{
+				window.location.href = "login.jsp";
+			});
+			//검색버튼 누르면 검색 창으로 이동
+			document.getElementById("gotoSearchButton").addEventListener("click",()=>{
+				window.location.href = "search.jsp";
+			})
 		</script>
 	</body>
 </html>
