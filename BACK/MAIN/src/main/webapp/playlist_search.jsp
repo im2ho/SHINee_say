@@ -6,6 +6,7 @@
 <%@ page import = "java.util.ArrayList" %>
 <%@ page import = "shinee.search.SearchDAO" %>
 <%@ page import = "shinee.search.Music_info" %>
+<%@ page import = "shinee.search.Playlist_info" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -46,9 +47,9 @@
                     <div style="margin-top: 60px; text-align: center;">
                         <img src="img/샤이니로고.png" alt="샤이니뮤직로고" style="width:150px;">
                         
-                       	<form method="post" name="search" action="search.jsp">>
+                       	<form method="post" name="search" action="playlist_search.jsp">
 			                <input type="text"
-			                    placeholder="노래제목 검색" id= "searchText" name="searchText" maxlength="100">
+			                    placeholder="플레이리스트 검색" id= "searchText" name="searchText" maxlength="100">
 			                <button type="submit">검색</button>
 	                  	</form>
 	                  	
@@ -57,14 +58,14 @@
                         <!--검색결과 올라가는 곳-->
 
                         <%	
- 
                         	SearchDAO searchDAO = new SearchDAO();
-                        	ArrayList<Music_info> musicList = searchDAO.getSearchMusics(request.getParameter("searchText"));
+                        	ArrayList<Playlist_info> playlistList = searchDAO.getSearchPlaylist(request.getParameter("searchText"));
                       		
-	                        for(Music_info m : musicList) {
+	                        for(Playlist_info p : playlistList) {
 	                        	
                         %>           	       
-							<p>제목 : <%=m.getSong_name()%> 가수 : <%=m.getArtist_name()%></p>
+							<p><%=p.getPlaylist_name()%></p>
+							<p>user : <%=p.getUser_id()%> : <%=p.getCreate_date()%></p>
 						<%
 							}
 						%>

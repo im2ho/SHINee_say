@@ -1,3 +1,4 @@
+package shinee.search;
 
 public class Music_info{
 	
@@ -20,11 +21,10 @@ public class Music_info{
 		this.genre = genre;
 	}
 	
-	//음악 검색 정보 (4가지만) 생성자
-	public Music_info(String song_name, String artist_name, String genre) {
+	//음악 검색 정보 (2가지만) 생성자
+	public Music_info(String song_name, String artist_name) {
 		this.song_name = song_name;
 		this.artist_name = artist_name;
-		this.genre = genre;
 	}
 	
 	//Getter------------------------------------

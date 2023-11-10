@@ -46,9 +46,13 @@
                     <div style="margin-top: 60px; text-align: center;">
                         <img src="img/샤이니로고.png" alt="샤이니뮤직로고" style="width:150px;">
                         
-                       	<form method="post" name="search" action="search.jsp">>
+                       	<form method="post" name="search" action="music_search.jsp">
+                       		<!-- <select class="form-control" name="searchField">
+								<option value="music_title">제목</option>
+								<option value="artist_name">가수</option>
+							</select>-->
 			                <input type="text"
-			                    placeholder="노래제목 검색" id= "searchText" name="searchText" maxlength="100">
+			                    placeholder="노래제목 검색" id= "searchText" name="searchText" minlength="2" maxlength="100"><!-- 최소 2글자 이상 -->
 			                <button type="submit">검색</button>
 	                  	</form>
 	                  	
@@ -60,7 +64,13 @@
  
                         	SearchDAO searchDAO = new SearchDAO();
                         	ArrayList<Music_info> musicList = searchDAO.getSearchMusics(request.getParameter("searchText"));
-                      		
+                        	
+                        	if(musicList.size()==0){
+                        		
+								//검색결과 없을경우 보일 창
+								
+                        	}
+                        	
 	                        for(Music_info m : musicList) {
 	                        	
                         %>           	       
