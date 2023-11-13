@@ -64,18 +64,25 @@ button::-moz-focus-inner,input[type=reset]::-moz-focus-inner,input[type=submit]:
     text-shadow:1px 1px 0 #fff
 }
 .window{
-    background:silver;box-shadow:inset -1px -1px #0a0a0a,inset 1px 1px #dfdfdf,inset -2px -2px grey,inset 2px 2px #fff;
+    background:silver;
+    box-shadow:inset -1px -1px #0a0a0a,inset 1px 1px #dfdfdf,inset -2px -2px grey,inset 2px 2px #fff;
     padding:3px
 }
 .title-bar{
-    align-items:center;background:linear-gradient(90deg,navy,#1084d0);display:flex;justify-content:space-between;padding:3px 2px 3px 3px
+    align-items:center;
+    background:linear-gradient(90deg,navy,#1084d0);
+    display:flex;
+    justify-content:space-between;
+    padding:3px 2px 3px 3px
 }
 .title-bar.inactive{
     background:linear-gradient(90deg,grey,#b5b5b5)
 }
 .title-bar-text{
-    color:#fff;font-weight:700;
-    letter-spacing:0;margin-right:24px
+    color:#fff;
+    font-weight:700;
+    letter-spacing:0;
+    margin-right:24px
 }
 .title-bar-controls{
     display:flex

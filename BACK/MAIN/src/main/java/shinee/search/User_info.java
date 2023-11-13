@@ -2,7 +2,7 @@ package shinee.search;
 
 import java.sql.Blob;
 
-public class User_search_info {
+public class User_info {
 	
 	//멤버변수
 	private String user_id;
@@ -14,14 +14,7 @@ public class User_search_info {
 	private Blob profile_img;
 	
 	//디폴트 생성자
-	public User_search_info() {};
-	
-	//사용자 검색 정보 (아이디 / 닉네임 / 프사) 생성자
-	public User_search_info(String user_id, String user_nickname, Blob profile_img) {
-		this.user_id = user_id;
-		this.user_nickname = user_nickname;
-		this.profile_img = profile_img;
-	}
+	public User_info() {};
 
 	
 	//Getter-------------------------------------
@@ -53,6 +46,8 @@ public class User_search_info {
 	public Blob getProfile_img() {
 		return profile_img;
 	}
+	
+
 
 
 	
@@ -91,5 +86,6 @@ public class User_search_info {
 	public void setProfile_img(Blob profile_img) {
 		this.profile_img = profile_img;
 	}
+
 	
 }

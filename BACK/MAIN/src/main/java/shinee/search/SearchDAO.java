@@ -30,7 +30,7 @@ import java.util.ArrayList;
 			try {
 				
 				if(searchText != null && !searchText.equals("") ){
-					searchSQL = "SELECT song_name, artist_name FROM music_info WHERE song_name LIKE ?";
+					searchSQL = "SELECT song_name, artist_name FROM music_info WHERE song_name LIKE ? OR artist_name LIKE ?";
 	            } else if(searchText == null || searchText.equals("")) {
 	            	return musicList;
 	            }
@@ -41,6 +41,7 @@ import java.util.ArrayList;
 				searchState = connection.prepareStatement(searchSQL);
 				
 				searchState.setString(1,"%"+searchText+"%");
+				searchState.setString(2,"%"+searchText+"%");
 				
 				resultSet = searchState.executeQuery();
 		
@@ -123,7 +124,7 @@ import java.util.ArrayList;
 		}
 	
 		//유저검색 메서드
-		public ArrayList<User_search_info> getSearchUsers(String searchText){
+		public ArrayList<User_info> getSearchUsers(String searchText){
 			
 			String searchSQL = null;
 
@@ -132,12 +133,12 @@ import java.util.ArrayList;
 			ResultSet resultSet = null;
 			
 			//2. 배열 만들러왓습니다 총총
-			ArrayList<User_search_info> userList = new ArrayList<>();
+			ArrayList<User_info> userList = new ArrayList<>();
 			
 			try {
 				
 				if(searchText != null && !searchText.equals("") ){
-					searchSQL = "SELECT user_id, user_nickname, profile_img FROM user_info WHERE user_id LIKE ? OR user_nickname LIKE ?";
+					searchSQL = "SELECT user_id, user_nickname FROM user_info WHERE user_id LIKE ? OR user_nickname LIKE ?";
 	            } else if(searchText == null || searchText.equals("")) {
 	            	return userList;
 	            }
@@ -152,13 +153,13 @@ import java.util.ArrayList;
 				
 				resultSet = searchState.executeQuery();
 		
+				
 				while(resultSet.next()) {
 					
-					User_search_info user_info = new User_search_info();
+					User_info user_info = new User_info();
 					
 					user_info.setUser_id(resultSet.getString("user_id"));
 					user_info.setUser_nickname(resultSet.getString("user_nickname"));
-					user_info.setProfile_img(resultSet.getBlob("profile_img"));
 
 					//1. 배열에 객체 담고싶은디 일단 배열 만들고올게용
 					//3. 만들고왓습니다 담아줄게요
@@ -171,7 +172,7 @@ import java.util.ArrayList;
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-			}
+			} 
 			
 			return userList;
 			

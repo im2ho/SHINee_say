@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @font-face {
     font-family: 'Ramche';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2307-1@1.1/Ramche.woff2') format('woff2');
@@ -102,29 +103,29 @@ article h3{
     width:16px
 }
 
-#categoryButton {
-    font-family: 'Ramche' ;
+#music_searchButton, #playlist_searchButton, #user_searchButton {
+    font-family: 'Ramche';
     font-size:medium ;
     margin-left: 30px ;
-    background: none ;
+    background: none;
     border: 0 ;
-    outline: none ;
-    box-shadow: none ;
-    height: 38px ;
-    margin-top: -3px ;
-    text-align: center ;
+    outline: none;
+    box-shadow: none;
+    height: 38px;
+    margin-top: -3px;
+    text-align: center;
 }
-#categoryButton:hover{
+#music_searchButton:hover, #user_searchButton:hover, #playlist_searchButton:hover{
 background-color: rgb(109, 109, 109);
 }
-article input{
+
+input{
     border-style: inset;
-    height:30px;
+    height:30px !important;
     width: 200px;
     margin-left: 10px;
 }
 #searchButton{
-    font-family: 'Ramche' ;
     font-size:medium ;
     margin-left: 10px ;
     outline: none ;
@@ -135,3 +136,19 @@ article input{
     border-top: 2px solid #444444;
     margin: 30px 30px;
   }
+
+#searchtop.bluetop{
+    margin-top:20px; 
+    height:15px; 
+    width: 800px;
+    border:none;
+}
+.window{
+    background:silver;
+    box-shadow:inset -1px -1px #0a0a0a,inset 1px 1px #dfdfdf,inset -2px -2px grey,inset 2px 2px #fff;
+    padding:3px;
+    font-family: 'Ramche';
+    margin-left: 350px; 
+    width: 500px; 
+    height:150px;
+}

@@ -23,11 +23,11 @@
 		%>
 	        <div class="container" style="margin-top:30px;">
 	            <aside>
-	                <button style="margin-top: 250px;">
+	                <button id="gotoMyPageButton" style="margin-top: 250px;">
 	                    <img src="img/mypage.png" style="width:85px; padding:0;" alt="myPage Icon">
 	                    <p><strong>mypage</strong></p>
 	                </button>
-	                <button style="margin-top: 50px;">
+	                <button id="gotoMyPlaylistButton" style="margin-top: 50px;">
 	                    <img src="img/lookaround.png" style="width:85px; padding:0;" alt="lookaround Icon">
 	                    <p><strong>my<br>Playlist</strong></p>
 	                </button>
@@ -58,14 +58,27 @@
 			} //else (로그아웃 상태에서 보여질 창)
 		%>
 		<script>
+			//창 이동 함수
+			
 			//로그인하기 버튼 누르면 로그인 창으로 이동
 			document.getElementById("gotoLoginButton").addEventListener("click",()=>{
 				window.location.href = "login.jsp";
 			});
-			//검색버튼 누르면 검색 창으로 이동
+			
+			//검색버튼 누르면 검색 창으로 이동 (기본 음악검색)
 			document.getElementById("gotoSearchButton").addEventListener("click",()=>{
-				window.location.href = "search.jsp";
-			})
+				window.location.href = "music_search.jsp";
+			});
+			
+			//마이페이지 버튼 누르면 이동
+			document.getElementById("gotoMyPageButton").addEventListener("click",()=>{
+				window.location.href = "myPage.jsp";
+			});
+			
+			//마이플레이리스트 버튼
+			document.getElementById("gotoMyPlaylistButton").addEventListener("click",()=>{
+				window.location.href = "myPlaylist.jsp";
+			});
 		</script>
 	</body>
 </html>

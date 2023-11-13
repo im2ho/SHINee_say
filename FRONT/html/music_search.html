@@ -1,19 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-    
-<% request.setCharacterEncoding("UTF-8"); %>
-    
-<%@ page import = "java.util.ArrayList" %>
-<%@ page import = "shinee.search.SearchDAO" %>
-<%@ page import = "shinee.search.Music_info" %>
-<%@ page import = "shinee.search.Playlist_info" %>
 <!DOCTYPE html>
 <html>
     <head>
     	<meta charset="UTF-8">
         <title>SHINee Music</title>
-        <link rel="stylesheet" type="text/css" href="css/search.css">
-        <link rel="stylesheet" type="text/css" href="css/all.css">
+        <link rel="stylesheet" type="text/css" href="../css/search.css">
+        <link rel="stylesheet" type="text/css" href="../css/all.css">
+        
         <script>
         	function displaySearchResult(){
         		alert("일치하는 검색결과가 없습니다");
@@ -24,15 +16,15 @@
         <div class="container" style="margin-top:30px;">
             <aside>
 	                <button id="gotoMyPageButton" style="margin-top: 250px;">
-	                    <img src="img/mypage.png" style="width:85px; padding:0;" alt="myPage Icon">
+	                    <img src="../img/mypage.png" style="width:85px; padding:0;" alt="myPage Icon">
 	                    <p><strong>mypage</strong></p>
 	                </button>
 	                <button id="gotoMyPlaylistButton" style="margin-top: 50px;">
-	                    <img src="img/lookaround.png" style="width:85px; padding:0;" alt="lookaround Icon">
+	                    <img src="../img/lookaround.png" style="width:85px; padding:0;" alt="lookaround Icon">
 	                    <p><strong>my<br>Playlist</strong></p>
 	                </button>
 	                <button id="gotoSearchButton" style="margin-top: 50px;">
-	                    <img src="img/pixel_search.png" style="width:85px; padding:0;" alt="Search Icon">
+	                    <img src="../img/pixel_search.png" style="width:85px; padding:0;" alt="Search Icon">
 	                    <p><strong>search</strong></p>
 	                </button>
             </aside>
@@ -49,61 +41,41 @@
                 </div>
                 <article>
                     <div style="margin-top: 60px; text-align: center;">
-                        <img src="img/샤이니로고.png" alt="샤이니뮤직로고" style="width:150px;">
+                        <img src="../img/샤이니로고.png" alt="샤이니뮤직로고" style="width:150px;">
                         
-                       	<form method="post" name="search" action="playlist_search.jsp">
+                       	<form method="post" name="search" action="music_search.jsp">
+                       		<!-- <select class="form-control" name="searchField">
+								<option value="music_title">제목</option>
+								<option value="artist_name">가수</option>
+							</select>-->
 			                <input type="text"
-			                    placeholder="플레이리스트 검색" id= "searchText" name="searchText" maxlength="100">
+			                    placeholder="노래제목 검색" id= "searchText" name="searchText" minlength="2" maxlength="100"><!-- 최소 2글자 이상 -->
 			                <button type="submit">검색</button>
 	                  	</form>
 	                  	
                         <div class="division-line"></div>
                        
                         <!--검색결과 올라가는 곳-->
-
-                        <%	
-                        	SearchDAO searchDAO = new SearchDAO();
-                        	ArrayList<Playlist_info> playlistList = searchDAO.getSearchPlaylist(request.getParameter("searchText"));
-                      		
-                        	//검색결과 없을경우 보일 창
-                        	if(playlistList.size() == 0){	
-						%>
-							<script>
-								displaySearchResult();
-							</script>
-							<img src="img/텅.png" style="margin-top:100px; width:250px;">
-						<%		
-                        	}
-                        	
-	                        for(Playlist_info p : playlistList) {
-	                        	
-                        %>           	       
-							<!-- <p>< %=p.getPlaylist_name()%></p>
-							<p>user : < %=p.getUser_id()%> : <%=p.getCreate_date()%></p> -->
-							<div class="window" style="width: 500px; height:150px; margin-left: 350px; margin-bottom: 10px;">
-								<div class="title-bar">
-									<div class="title-bar-text">
-										playlist_info
-									</div>
-									<div class="title-bar-controls">
-										<button aria-label="Minimize"></button>
-										<button aria-label="Maximize"></button>
-										<button aria-label="Close"></button>
-									</div>
+                        <div class="window">
+							<div class="title-bar">
+								<div class="title-bar-text">
+									music_info
 								</div>
-								<div style="float: left; margin-left: 15px; width:100px; height: 100px; margin-top: 10px; background-color: white; box-shadow:inset;">
-									<img src="img/텅.png" style="height: 100px;">
+								<div class="title-bar-controls">
+									<button aria-label="Minimize"></button>
+									<button aria-label="Maximize"></button>
+									<button aria-label="Close"></button>
 								</div>
-								<div style="float:right; width: 50%; text-align: left;">
-									<div style="margin-top:20px; width:200px; height: 30px;"><p>[ <%=p.getPlaylist_name()%> ]</p></div>
-									<div><p>user : <%=p.getUser_id()%> ( <%=p.getCreate_date()%> )</p></div>
-									<button style="margin-top: 5px;">자세히 보기</button>
-								</div>
-                    		</div>
-						<%
-							}
-						%>
-                    </div>
+							</div>
+							<div style="float: left; margin-left: 15px; width:100px; height: 100px; margin-top: 10px; background-color: white; box-shadow:inset;">
+								<img src="../img/샤월1.jpg" style="height: 100px;">
+							</div>
+							<div style="float:right; width: 50%; text-align: left;">
+								<div style="margin-top:20px; width:150px; height: 30px;">제목 : 산소같은 너</div>
+								<div>가수 : 샤이니</div>
+								<button style="margin-top: 20px;">add to myPlaylist</button>
+							</div>
+                    	</div>
                 </article>
             </section>
         </div><!--container-->
