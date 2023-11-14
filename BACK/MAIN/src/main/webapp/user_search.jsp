@@ -5,8 +5,6 @@
     
 <%@ page import = "java.util.ArrayList" %>
 <%@ page import = "shinee.search.SearchDAO" %>
-<%@ page import = "shinee.search.Music_info" %>
-<%@ page import = "shinee.search.Playlist_info" %>
 <%@ page import = "shinee.search.User_info" %>
 
 <!DOCTYPE html>
@@ -16,11 +14,6 @@
         <title>SHINee Music</title>
         <link rel="stylesheet" type="text/css" href="css/search.css">
         <link rel="stylesheet" type="text/css" href="css/all.css">
-        <script>
-        	function displaySearchResult(){
-        		alert("일치하는 검색결과가 없습니다");
-        	}
-        </script>
     </head>
     <body>
         <div class="container" style="margin-top:30px;">
@@ -53,9 +46,9 @@
                     <div style="margin-top: 60px; text-align: center;">
                         <img src="img/샤이니로고.png" alt="샤이니뮤직로고" style="width:150px;">
                         
-                       	<form method="post" name="search" action="user_search.jsp" enctype="multipart/form-data">
+                       	<form method="post" name="search" action="user_search.jsp">
 			                <input type="text"
-			                    placeholder="사용자 검색" id= "searchText" name="searchText" maxlength="100">
+			                    placeholder="사용자 검색" id= "searchText" name="searchText" minlength="2" maxlength="100">
 			                <button type="submit">검색</button>
 	                  	</form>
 	                  	
@@ -68,14 +61,12 @@
                         	ArrayList<User_info> userList = searchDAO.getSearchUsers(request.getParameter("searchText"));
                       		
                         	//검색결과 없을경우 보일 창
-                        	//if(userList.size() == 0){	
+                        	if(userList.size() == 0){	
 						%>
-							<!--  <script>
-								displaySearchResult();
-							</script>
-							<img src="img/텅.png" style="margin-top:100px; width:250px;">-->
+							<img src="img/텅.png" style="margin-top:100px; width:250px;">
+							<p>검색 결과가 존재하지 않습니다.</p>
 						<%		
-                        	//}
+                        	}
                         	
 	                        for(User_info u : userList) {
 	                        	
@@ -92,17 +83,19 @@
 									</div>
 								</div>
 								<div style="float: left; margin-left: 15px; width:100px; height: 100px; margin-top: 10px; background-color: white; box-shadow:inset;">
+									<img src="<%=u.getProfile_img()%>" alt="<%=u.getUser_nickname()%>님의 프로필 사진" style="height: 100%;">
 								</div>
 								<div style="float:right; width: 50%; text-align: left;">
-									<p style="margin-top:20px; width:200px; height: 30px;">id : <%=u.getUser_id() %></p>
-									<p style="margin-top:-10px;">nickname : <%=u.getUser_nickname() %></p>
+									<p style="margin-top:20px; width:200px; height: 30px;">id : <%=u.getUser_id()%></p>
+									<p style="margin-top:-10px;">nickname : <%=u.getUser_nickname()%></p>
 									<button style="margin-top: 5px;">사용자 홈 방문</button>
 								</div>
                     		</div>
+                    		
+                    		
 						<%
 							}
 						%>
-						<!--  <img src="" alt="< %=u.getUser_nickname()%>님의 프로필 사진" style="height: 100px;">-->
                     </div>
                 </article>
             </section>

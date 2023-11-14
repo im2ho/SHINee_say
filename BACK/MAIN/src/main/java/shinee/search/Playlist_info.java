@@ -5,7 +5,7 @@ import java.util.Date;
 public class Playlist_info {
 
 	//¸â¹öº¯¼ö
-	String playlist_id;
+	int playlist_id;
 	String user_id;
 	String playlist_name;
 	Date create_date;
@@ -23,7 +23,7 @@ public class Playlist_info {
 	
 	//Getter----------------------------------
 	
-	public String getPlaylist_id() {
+	public int getPlaylist_id() {
 		return playlist_id;
 	}
 
@@ -41,7 +41,7 @@ public class Playlist_info {
 
 	//Setter----------------------------------
 	
-	public void setPlaylist_id(String playlist_id) {
+	public void setPlaylist_id(int playlist_id) {
 		this.playlist_id = playlist_id;
 	}
 

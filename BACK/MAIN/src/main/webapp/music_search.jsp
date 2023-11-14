@@ -5,7 +5,9 @@
     
 <%@ page import = "java.util.ArrayList" %>
 <%@ page import = "shinee.search.SearchDAO" %>
+<%@ page import = "shinee.insert.InsertDAO" %>
 <%@ page import = "shinee.search.Music_info" %>
+<%@ page import = "shinee.search.Playlist_info" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -13,12 +15,6 @@
         <title>SHINee Music</title>
         <link rel="stylesheet" type="text/css" href="css/search.css">
         <link rel="stylesheet" type="text/css" href="css/all.css">
-        
-        <script>
-        	function displaySearchResult(){
-        		alert("일치하는 검색결과가 없습니다");
-        	}
-        </script>
     </head>
     <body>
         <div class="container" style="margin-top:30px;">
@@ -73,10 +69,8 @@
                         	//검색결과 없을경우 보일 창
                         	if(musicList.size() == 0){	
 						%>
-							<script>
-								displaySearchResult();
-							</script>
 							<img src="img/텅.png" style="margin-top:100px; width:250px;">
+							<p>검색 결과가 존재하지 않습니다.</p>
 						<%		
                         	}
                         	
@@ -84,7 +78,7 @@
 	                        	
                         %>           	        
 							<!-- <p>제목 : < %=m.getSong_name()%> 가수 : < %=m.getArtist_name()%></p> -->
-							<div class="window" style="width: 500px; height:150px; margin-left: 350px; margin-bottom: 10px;">
+							<div class="window" style="width: 500px; height:150px; float: left; margin-left: 80px; margin-bottom: 10px;">
 								<div class="title-bar">
 									<div class="title-bar-text">
 										music_info
@@ -104,6 +98,23 @@
 									<button style="margin-top: 5px;">add to myPlaylist</button>
 								</div>
                     		</div>
+                    		
+                    		<div style="float:right; width:400px; height:100px; border:solid; margin-right: 80px;">
+		                    	<p>나의 플레이리스트</p>
+		                    	<select name="playlistFiled">
+		                    		<%
+				                    	InsertDAO insertDAO = new InsertDAO();
+				                        ArrayList<Playlist_info> myplaylists = insertDAO.getAllPlaylist((String)session.getAttribute("user_id"));
+				                        		
+				                        for(Playlist_info p : myplaylists) {
+				                    %>
+				                        <option value=<%=p.getPlaylist_name()%>><%=p.getPlaylist_name()%></option>
+				                    <%
+				                        };
+				                    %>
+		                    	</select>
+		                    	<button>저장</button>
+		                    </div>
 						<%
 							}
 						%>

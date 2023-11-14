@@ -1,5 +1,6 @@
 package shinee.search;
 
+import java.sql.Blob;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -136,12 +137,14 @@ import java.util.ArrayList;
 			ArrayList<User_info> userList = new ArrayList<>();
 			
 			try {
-				
-				if(searchText != null && !searchText.equals("") ){
-					searchSQL = "SELECT user_id, user_nickname FROM user_info WHERE user_id LIKE ? OR user_nickname LIKE ?";
+				/*
+				if(searchText != null && !searchText.equals("")){
+					searchSQL = "SELECT user_id, user_nickname, profile_img FROM user_info WHERE user_id LIKE ? OR user_nickname LIKE ?";
 	            } else if(searchText == null || searchText.equals("")) {
 	            	return userList;
-	            }
+	            }*/
+				
+				searchSQL = "SELECT user_id, user_nickname, profile_img FROM user_info WHERE user_id LIKE ? OR user_nickname LIKE ?";
 				
 				Class.forName("oracle.jdbc.OracleDriver");
 				connection = DriverManager.getConnection(jdbcURL, jbdcUsername, jdbcPassword);
@@ -160,6 +163,14 @@ import java.util.ArrayList;
 					
 					user_info.setUser_id(resultSet.getString("user_id"));
 					user_info.setUser_nickname(resultSet.getString("user_nickname"));
+					
+					Blob blob = resultSet.getBlob("profile_img");
+					
+					byte[] imageData = blob.getBytes(1, (int) blob.length());
+					String imageBase64 = java.util.Base64.getEncoder().encodeToString(imageData);
+					String profile_image = "data:image/jpeg;base64, " + imageBase64;
+					
+					user_info.setProfile_img(profile_image);
 
 					//1. 배열에 객체 담고싶은디 일단 배열 만들고올게용
 					//3. 만들고왓습니다 담아줄게요
@@ -177,4 +188,5 @@ import java.util.ArrayList;
 			return userList;
 			
 		}
+	
 	}

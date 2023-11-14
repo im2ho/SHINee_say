@@ -1,7 +1,5 @@
 package shinee.search;
 
-import java.sql.Blob;
-
 public class User_info {
 	
 	//멤버변수
@@ -11,12 +9,19 @@ public class User_info {
 	private String user_password;
 	private String email;
 	private String phone_number;
-	private Blob profile_img;
+	private String profile_img;
 	
+	public String getProfile_img() {
+		return profile_img;
+	}
+
+	public void setProfile_img(String profile_img) {
+		this.profile_img = profile_img;
+	}
+
 	//디폴트 생성자
 	public User_info() {};
 
-	
 	//Getter-------------------------------------
 	
 	public String getUser_id() {
@@ -43,15 +48,7 @@ public class User_info {
 		return phone_number;
 	}
 
-	public Blob getProfile_img() {
-		return profile_img;
-	}
-	
-
-
-
-	
-	//Getter-------------------------------------
+	//Setter-------------------------------------
 	
 	public void setUser_id(String user_id) {
 		this.user_id = user_id;
@@ -81,11 +78,5 @@ public class User_info {
 	public void setPhone_number(String phone_number) {
 		this.phone_number = phone_number;
 	}
-
-	
-	public void setProfile_img(Blob profile_img) {
-		this.profile_img = profile_img;
-	}
-
 	
 }

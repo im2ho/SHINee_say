@@ -23,18 +23,21 @@ public class BlobTest {
             con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe",
                     "shinee","shinee");
             
-            File f = new File("C://Users//user1//Desktop/윈디.jpeg");    
+            File f = new File("C://Users//user1//Desktop/단하나토마스.jpeg");    
             FileInputStream fis = new FileInputStream(f);
             
             stmt = con.prepareStatement(
-                    "INSERT INTO user_info VALUES(?,?,?,?,?,?,?)");
-            stmt.setString(1, "rladlgdh");
-            stmt.setString(2, "김일호");
-            stmt.setString(3, "일호");
-            stmt.setString(4, "kh123123!");
-            stmt.setString(5, "dlghdldfgh@naver.com");
-            stmt.setString(6, "01081651659");
-            stmt.setBinaryStream(7, fis,(int)f.length());
+            		//update 테이블명 set 업데이트컬럼명 = 업데이트할 값 where 조건
+                    "UPDATE user_info SET profile_img=? WHERE user_id=?");
+           
+            stmt.setBinaryStream(1, fis,(int)f.length());
+            stmt.setString(2, "tjrhkd");
+            //stmt.setString(2, "나세희");
+            //stmt.setString(3, "칸쵸");
+            //stmt.setString(4, "kh123456!");
+            //stmt.setString(5, "kankan@kakao.com");
+            //stmt.setString(6, "01037134606");
+            //stmt.setBinaryStream(7, fis,(int)f.length());
             
             int rownum = stmt.executeUpdate();
             

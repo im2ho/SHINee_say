@@ -44,7 +44,7 @@
 	                </div>
 	                <article>
 	                    <div style="text-align: center; margin-top:8%">
-	                        <img src="img/dino.gif" alt="샤이니뮤직 로고" style="width:300px;">
+	                        <img src="img/dino.gif" alt="샤이니뮤직 홈" style="width:300px;">
 	                    </div>
 	                    <div style="text-align: center; margin-top: 20px;">
 	                        <h3>로그인 후 이용해주세요</h3><br>

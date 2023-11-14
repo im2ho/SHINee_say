@@ -14,11 +14,6 @@
         <title>SHINee Music</title>
         <link rel="stylesheet" type="text/css" href="css/search.css">
         <link rel="stylesheet" type="text/css" href="css/all.css">
-        <script>
-        	function displaySearchResult(){
-        		alert("일치하는 검색결과가 없습니다");
-        	}
-        </script>
     </head>
     <body>
         <div class="container" style="margin-top:30px;">
@@ -66,12 +61,10 @@
                         	ArrayList<Playlist_info> playlistList = searchDAO.getSearchPlaylist(request.getParameter("searchText"));
                       		
                         	//검색결과 없을경우 보일 창
-                        	if(playlistList.size() == 0){	
+                        	if(playlistList.size() == 0){
 						%>
-							<script>
-								displaySearchResult();
-							</script>
 							<img src="img/텅.png" style="margin-top:100px; width:250px;">
+							<p>검색 결과가 존재하지 않습니다.</p>
 						<%		
                         	}
                         	
@@ -79,7 +72,7 @@
 	                        	
                         %>           	       
 							<!-- <p>< %=p.getPlaylist_name()%></p>
-							<p>user : < %=p.getUser_id()%> : <%=p.getCreate_date()%></p> -->
+							<p>user : < %=p.getUser_id()%> : < %= p.getCreate_date()%></p> -->
 							<div class="window" style="width: 500px; height:150px; margin-left: 350px; margin-bottom: 10px;">
 								<div class="title-bar">
 									<div class="title-bar-text">
