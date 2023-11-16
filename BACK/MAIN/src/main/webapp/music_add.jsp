@@ -43,20 +43,27 @@
                 <article><!-- 내용작성 -->
                     <div style="text-align: center; margin-top: 20%;">
                         <p>플레이리스트 선택</p>
-                        <select name="playlistFiled">
+                        <form action="AddMusicServlet" method="post">
                         	<%
-                        		InsertDAO insertDAO = new InsertDAO();
-                        		ArrayList<Playlist_info> myplaylists = insertDAO.getAllPlaylist((String)session.getAttribute("user_id"));
-                        		
-                        		for(Playlist_info p : myplaylists) {
+                        		String searchText = (String)request.getParameter("song_id");
+                        		SearchDAO searchDAO = new SearchDAO();
                         	%>
-                        		<option value=<%=p.getPlaylist_name()%>><%=p.getPlaylist_name()%></option>
-                        	<%
-                        		};
-                        	%>
-                        		
-                        </select>
-                        <button id="addMusic">저장</button>
+	                        <input type="hidden" name="music_data" value="<%=searchDAO.getMusic_id(searchText)%>">
+		                    <select name="playlistField">
+	                        	<%
+	                        		InsertDAO insertDAO = new InsertDAO();
+	                        		ArrayList<Playlist_info> myplaylists = insertDAO.getAllPlaylist((String)session.getAttribute("user_id"));
+	                        		
+	                        		for(Playlist_info p : myplaylists) {
+	                        	%>
+	                        		<option value=<%=p.getPlaylist_id()%>><%=p.getPlaylist_name()%></option>
+	                        	<%
+	                        		};
+	                        	%>
+	                        		
+	                        </select>
+	                        <button type="submit">저장</button>
+                        </form>
                     </div>
                 </article>
             </section>
@@ -78,19 +85,6 @@
 			//마이플레이리스트 버튼
 			document.getElementById("gotoMyPlaylistButton").addEventListener("click",()=>{
 				window.location.href = "myPlaylist.jsp";
-			});
-			
-			//검색 카테고리 이동 버튼
-			document.getElementById("music_searchButton").addEventListener("click",()=>{
-				window.location.href = "music_search.jsp";
-			});
-			
-			document.getElementById("playlist_searchButton").addEventListener("click",()=>{
-				window.location.href = "playlist_search.jsp";
-			});
-			
-			document.getElementById("user_searchButton").addEventListener("click",()=>{
-				window.location.href = "user_search.jsp";
 			});
 			
 		</script>

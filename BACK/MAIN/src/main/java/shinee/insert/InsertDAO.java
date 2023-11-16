@@ -23,14 +23,12 @@ public class InsertDAO {
 
 	//플레이리스트id 입력받고, 해당목록에 추가하는...메서드
 	public Music_info insertMusictoPlaylist(int playlist_id, String song_id) {
-		
-		String searchSQL = null;
 
 		Connection connection = null;
 		PreparedStatement insertState = null;
 		ResultSet resultSet = null;
 		
-		String insertSQL = "INSERT INTO playlist_music VALUES(?,?)";
+		String insertSQL = "INSERT INTO playlist_song VALUES(?,?)";
 		
 		try {
 			Class.forName("oracle.jdbc.OracleDriver");

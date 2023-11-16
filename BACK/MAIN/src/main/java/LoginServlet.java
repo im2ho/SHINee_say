@@ -46,6 +46,7 @@ public class LoginServlet extends HttpServlet {
 			
 			ResultSet resultSet = selectState.executeQuery();
 			
+			//로그인 성공
 			if(resultSet.next()) {
 				
 				HttpSession session = request.getSession();
@@ -56,12 +57,12 @@ public class LoginServlet extends HttpServlet {
 				session.setAttribute("email", resultSet.getString("email"));
 				session.setAttribute("phone_number", resultSet.getString("phone_number"));
 				
-				response.sendRedirect("home.jsp"); //home.jsp에 로그인 정보 보내기
-				request.getRequestDispatcher("home.jsp"); //로그인 성공하면 다시 홈으로 돌아가렴
+				response.sendRedirect("playList.jsp"); //playList.jsp에 로그인 정보 보내기
+				request.getRequestDispatcher("playList.jsp"); //로그인 성공하면 다시 홈으로 돌아가렴
 			} else {
 				//로그인 실패
 				request.setAttribute("loginError", "true");
-				request.getRequestDispatcher("login.jsp").forward(request, response); //로그인 실패했으면 다시 집으로 가렴
+				request.getRequestDispatcher("login.jsp").forward(request, response); //로그인 실패했으면 다시 시도하렴
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

@@ -28,10 +28,10 @@ public class BlobTest {
             
             stmt = con.prepareStatement(
             		//update 테이블명 set 업데이트컬럼명 = 업데이트할 값 where 조건
-                    "UPDATE user_info SET profile_img=? WHERE user_id=?");
+                    "UPDATE playlist_info SET image=? WHERE user_id=?");
            
             stmt.setBinaryStream(1, fis,(int)f.length());
-            stmt.setString(2, "tjrhkd");
+            stmt.setString(2, "gkdms2710");
             //stmt.setString(2, "나세희");
             //stmt.setString(3, "칸쵸");
             //stmt.setString(4, "kh123456!");

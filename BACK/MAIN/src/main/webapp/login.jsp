@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
     
 <% request.setCharacterEncoding("UTF-8"); %>
 <!DOCTYPE html>
@@ -78,7 +77,7 @@
 				
 				//마이플레이리스트 버튼
 				document.getElementById("gotoMyPlaylistButton").addEventListener("click",()=>{
-					window.location.href = "myPlaylist.jsp";
+					window.location.href = "playList.jsp";
 				});
 			</script>
 	</body>

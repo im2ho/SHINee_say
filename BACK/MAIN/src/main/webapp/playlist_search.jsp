@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
     
 <% request.setCharacterEncoding("UTF-8"); %>
     
@@ -85,11 +84,11 @@
 									</div>
 								</div>
 								<div style="float: left; margin-left: 15px; width:100px; height: 100px; margin-top: 10px; background-color: white; box-shadow:inset;">
-									<img src="img/텅.png" style="height: 100px;">
+									<img src="<%=p.getImage()%>" style="height: 100px;">
 								</div>
 								<div style="float:right; width: 50%; text-align: left;">
 									<div style="margin-top:20px; width:200px; height: 30px;"><p>[ <%=p.getPlaylist_name()%> ]</p></div>
-									<div><p>user : <%=p.getUser_id()%> ( <%=p.getCreate_date()%> )</p></div>
+									<div><p>user : <%=p.getUser_id()%></p></div>
 									<button style="margin-top: 5px;">자세히 보기</button>
 								</div>
                     		</div>
@@ -114,7 +113,7 @@
 			
 			//마이플레이리스트 버튼
 			document.getElementById("gotoMyPlaylistButton").addEventListener("click",()=>{
-				window.location.href = "myPlaylist.jsp";
+				window.location.href = "playList.jsp";
 			});
 			
 			//검색 카테고리 이동 버튼

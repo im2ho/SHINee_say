@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <% request.setCharacterEncoding("UTF-8"); %>
 <!DOCTYPE html>
 <html>
@@ -15,8 +14,7 @@
 			//user_id 값이 존재할 경우
 			if(session.getAttribute("user_id") != null){
 		%>
-			<h3>로그인 상태에서 보일 창을 만들겟어요</h3>
-			<p>myplaylist 페이지로 자동 연결할지도</p>
+			<!-- myplaylist로 이동 -->
 		<%
 			} else {
 				//로그아웃 상태에서 보일 페이지 내용
@@ -77,7 +75,7 @@
 			
 			//마이플레이리스트 버튼
 			document.getElementById("gotoMyPlaylistButton").addEventListener("click",()=>{
-				window.location.href = "myPlaylist.jsp";
+				window.location.href = "playList.jsp";
 			});
 		</script>
 	</body>
