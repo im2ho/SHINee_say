@@ -13,30 +13,33 @@
 }
 *{
     box-sizing: border-box;
+    font-family: 'Ramche';
 }
 body {
     background: linear-gradient(white 20%,lightCyan 30%, skyBlue 50%, deepSkyBlue 80% ) ;
     height: 1080px;
+    font-family: 'Ramche';
 }
 .container{
     max-width: 1500px;
     margin-top: 50px;
+    margin-right: 300px;
 }
 aside{
     text-align: center;
     width: 10%;
     float:left;
+    font-family: 'Ramche';
+}
+aside text {
+	font-family: 'Ramche';
 }
 aside button{
     background: none; 
     border: 0; 
     outline: none; 
     box-shadow: none;
-    padding: 0;
-    margin-left: 80px;
-    font-family: 'Ramche';
-    font-size: large;
-    font-style: italic;
+    margin-left: 50px;
 }
 button:focus{
     border: none !important;
@@ -57,8 +60,10 @@ section{
     padding-top: 5px;
     border-style: solid;
     border-color: gray;
-    font-family: 'Ramche';
+    
 }
+
+
 article{
     overflow: scroll;
     margin-top: 0;
@@ -71,9 +76,7 @@ article{
 }
 article h3{
     font-family: 'Ramche';
-}
-a{
-	font-family: 'Ramche';
+    width: 600px;
 }
 ::-webkit-scrollbar{
     width:16px
@@ -109,17 +112,35 @@ a{
     background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg width='16' height='17' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M15 0H0v16h1V1h14V0z' fill='%23DFDFDF'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M2 1H1v14h1V2h12V1H2z' fill='%23fff'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M16 17H0v-1h15V0h1v17z' fill='%23000'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M15 1h-1v14H1v1h14V1z' fill='gray'/%3E%3Cpath fill='silver' d='M2 2h12v13H2z'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M7 4H6v7h1v-1h1V9h1V8h1V7H9V6H8V5H7V4z' fill='%23000'/%3E%3C/svg%3E");
     width:16px
 }
-#new {
-    margin-left: 30px;
-    background: none;
-    border: 0;
-    outline: none;
-    box-shadow: none;
-    height: 38px;
-    margin-top: -3px;
-    padding-top: 5px;
-    text-align: center;
+
+
+
+.box {
+    width: 150px;
+    height: 150px; 
+    border-radius: 70%; 
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    margin-left: 225px;
 }
-#new:hover{
-background-color: rgb(109, 109, 109);
+.modifySpace {
+    margin-top: 10px;
+    margin-left: 225px;
+}
+
+.showText {
+    display: flex;
+    justify-content: center;
+}
+article {
+    float: left;
+    padding: 0%;
+    width: 100%;
+    background-color: rgb(255, 255, 255);
+    height: 1000px;
+    text-align: center;
+    color: #3e4149;
+
 }

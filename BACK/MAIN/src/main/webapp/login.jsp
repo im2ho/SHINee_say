@@ -44,7 +44,7 @@
 	                        <input type="password" id="user_password" name="user_password" placeholder="user_password" style="width:200px; height: 30px; margin-bottom:15px; border-style:none;"><br>
 	                    	<input type="submit" value="로그인" style="background-color:blue; color:white; width:80px; height: 30px; border-style:none;">
                     	</form><br>
-                    		<a href="#" style="font-size:xsmall; margin-top:10px;">계정이 없으신가요?</a> <!-- 회원가입 페이지로 이동 -->
+                    		<a href="Register_user.jsp" style="font-size:xsmall; margin-top:10px;">계정이 없으신가요?</a> <!-- 회원가입 페이지로 이동 -->
                     </div>
                 </article>
             </section>
@@ -72,12 +72,12 @@
 				
 				//마이페이지 버튼 누르면 이동
 				document.getElementById("gotoMyPageButton").addEventListener("click",()=>{
-					window.location.href = "myPage.jsp";
+					window.location.href = "MyPage.jsp";
 				});
 				
 				//마이플레이리스트 버튼
 				document.getElementById("gotoMyPlaylistButton").addEventListener("click",()=>{
-					window.location.href = "playList.jsp";
+					window.location.href = "MyPlaylist.jsp";
 				});
 			</script>
 	</body>
