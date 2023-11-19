@@ -48,10 +48,14 @@ public class FollowBlob_DAO {
 	            String userNickname = resultSet.getString("user_nickname");
 	           
 	            Blob blob = resultSet.getBlob("profile_img");
-                byte[] imageData = blob.getBytes(1, (int) blob.length());
-                String imageBase64 = java.util.Base64.getEncoder().encodeToString(imageData);
-                String profile_img = "data:image/jpeg;base64, " + imageBase64;
-				
+	            String profile_img;
+	            if(blob!=null) {
+	                byte[] imageData = blob.getBytes(1, (int) blob.length());
+	                String imageBase64 = java.util.Base64.getEncoder().encodeToString(imageData);
+	                profile_img = "data:image/jpeg;base64, " + imageBase64;
+	            } else {
+	            	profile_img = null;
+	            }
                 Follow_list_VO followlist = new Follow_list_VO(followerId, followingId, userNickname, profile_img);
 	            followlists.add(followlist);
 

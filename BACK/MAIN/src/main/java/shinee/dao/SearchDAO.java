@@ -36,7 +36,7 @@ import shinee.vo.User_info_VO;
 			try {
 				
 				if(searchText != null && !searchText.equals("") ){
-					searchSQL = "SELECT song_id, song_name, artist_name FROM music_info WHERE song_name LIKE ? OR artist_name LIKE ?";
+					searchSQL = "SELECT * FROM music_info WHERE song_name LIKE ? OR artist_name LIKE ?";
 	            } else if(searchText == null || searchText.equals("")) {
 	            	return musicList;
 	            }
@@ -58,6 +58,15 @@ import shinee.vo.User_info_VO;
 					music_info.setSong_id(resultSet.getString("song_id"));
 					music_info.setSong_name(resultSet.getString("song_name"));
 					music_info.setArtist_name(resultSet.getString("artist_name"));
+					music_info.setGenre(resultSet.getString("genre"));
+					
+					//이미지 가져오기
+					Blob blob = resultSet.getBlob("album_img");
+					byte[] imageData = blob.getBytes(1, (int) blob.length());
+					String imageBase64 = java.util.Base64.getEncoder().encodeToString(imageData);
+					String album_image = "data:image/jpeg;base64, " + imageBase64;
+					
+					music_info.setAlbum_img(album_image);
 
 					//1. 배열에 객체 담고싶은디 일단 배열 만들고올게용
 					//3. 만들고왓습니다 담아줄게요
@@ -150,12 +159,6 @@ import shinee.vo.User_info_VO;
 			ArrayList<User_info_VO> userList = new ArrayList<>();
 			
 			try {
-				/*
-				if(searchText != null && !searchText.equals("")){
-					searchSQL = "SELECT user_id, user_nickname, profile_img FROM user_info WHERE user_id LIKE ? OR user_nickname LIKE ?";
-	            } else if(searchText == null || searchText.equals("")) {
-	            	return userList;
-	            }*/
 				
 				searchSQL = "SELECT user_id, user_nickname, profile_img FROM user_info WHERE user_id LIKE ? OR user_nickname LIKE ?";
 				
@@ -178,10 +181,15 @@ import shinee.vo.User_info_VO;
 					user_info.setUser_nickname(resultSet.getString("user_nickname"));
 					
 					Blob blob = resultSet.getBlob("profile_img");
+					String profile_image;
 					
-					byte[] imageData = blob.getBytes(1, (int) blob.length());
-					String imageBase64 = java.util.Base64.getEncoder().encodeToString(imageData);
-					String profile_image = "data:image/jpeg;base64, " + imageBase64;
+					if(blob != null) {
+						byte[] imageData = blob.getBytes(1, (int) blob.length());
+						String imageBase64 = java.util.Base64.getEncoder().encodeToString(imageData);
+						profile_image = "data:image/jpeg;base64, " + imageBase64;
+					} else {
+						profile_image = null;
+					}
 					
 					user_info.setProfile_img(profile_image);
 

@@ -24,15 +24,15 @@ public class BlobTest {
             con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe",
                     "shinee","shinee");
             
-            File f = new File("C://Users//user1//Desktop/단하나토마스.jpeg");    
+            File f = new File("C://Users//나세희//Desktop/고자.jpg");    
             FileInputStream fis = new FileInputStream(f);
             
             stmt = con.prepareStatement(
             		//update 테이블명 set 업데이트컬럼명 = 업데이트할 값 where 조건
-                    "UPDATE user_info SET profile_img=? WHERE user_id=?");
+                    "UPDATE user_info SET profile_img=? WHERE user_name=?");
            
             stmt.setBinaryStream(1, fis,(int)f.length());
-            stmt.setString(2, "gkdms2710");
+            stmt.setString(2, "서광원");
             //stmt.setString(2, "나세희");
             //stmt.setString(3, "칸쵸");
             //stmt.setString(4, "kh123456!");

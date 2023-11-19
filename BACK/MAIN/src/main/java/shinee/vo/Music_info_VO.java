@@ -8,6 +8,7 @@ public class Music_info_VO{
 	private String song_name;
 	private String artist_name;
 	private String genre;
+	private String album_img;
 	
 	//디폴트 생성자
 	public Music_info_VO() {};
@@ -61,5 +62,15 @@ public class Music_info_VO{
 	public void setGenre(String genre) {
 		this.genre = genre;
 	}
+
+	public String getAlbum_img() {
+		return album_img;
+	}
+
+	public void setAlbum_img(String album_img) {
+		this.album_img = album_img;
+	}
+	
+	
 	
 }

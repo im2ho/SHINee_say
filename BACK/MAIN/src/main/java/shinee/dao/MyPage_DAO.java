@@ -39,12 +39,16 @@ public class MyPage_DAO {
                 String userPassword = resultSet.getString("user_password");
                 String email = resultSet.getString("email");
                 String phoneNumber = resultSet.getString("phone_number");
-       
                 
                 Blob blob = resultSet.getBlob("profile_img");
-                byte[] imageData = blob.getBytes(1, (int) blob.length());
-                String imageBase64 = java.util.Base64.getEncoder().encodeToString(imageData);
-                String profile_img = "data:image/jpeg;base64, " + imageBase64;
+                String profile_img;
+				if(blob != null) {
+	                byte[] imageData = blob.getBytes(1, (int) blob.length());
+	                String imageBase64 = java.util.Base64.getEncoder().encodeToString(imageData);
+	                profile_img = "data:image/jpeg;base64, " + imageBase64;
+                } else {
+                	profile_img = null;
+                }
 
                 ui = new User_info_VO(userId, userName, userNickname, userPassword, email, phoneNumber, profile_img);
             }
